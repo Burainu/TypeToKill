@@ -2,15 +2,15 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-Typing Game/[Ll]ibrary/
-Typing Game/[Tt]emp/
-Typing Game/[Oo]bj/
-Typing Game/[Bb]uild/
-Typing Game/[Bb]uilds/
-Typing Game/[Ll]ogs/
-Typing Game/[Mm]emoryCaptures/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
 
-# Asset meta data should only be ignored when the corresponding asset is also ignored
+# Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
@@ -21,6 +21,7 @@ Typing Game/[Mm]emoryCaptures/
 
 # Visual Studio cache directory
 .vs/
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -57,4 +58,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-

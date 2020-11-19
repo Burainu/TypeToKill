@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-Typing Game\[Ll]ibrary\
+Typing Game/[Ll]ibrary/
 Typing Game/[Tt]emp/
 Typing Game/[Oo]bj/
 Typing Game/[Bb]uild/

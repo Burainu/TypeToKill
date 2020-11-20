@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Castle
   - PlayerText
+  - Text
+  - Enemy_Text
   layers:
   - Default
   - TransparentFX

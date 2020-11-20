@@ -544,7 +544,7 @@ MonoBehaviour:
   spawnTimer: 10
   timeTillSpawn: 9
   enemies: []
-  dictionaryTextFile: {fileID: 0}
+  dictionaryTextFile: {fileID: 4900000, guid: 1457e4fd68037fd48b424350b4427519, type: 3}
 --- !u!4 &395009254
 Transform:
   m_ObjectHideFlags: 0

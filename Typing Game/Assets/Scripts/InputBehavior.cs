@@ -12,8 +12,8 @@ public class InputBehavior : MonoBehaviour
         var se = new InputField.SubmitEvent();
         se.AddListener(SubmitWord);
         input.onEndEdit = se;
-        input.Select();
-        input.text = "";
+        
+
 
     }
 
@@ -22,6 +22,8 @@ public class InputBehavior : MonoBehaviour
         GameObject go = GameObject.Find("SpawnController");
         SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
         other.AttemptedKill(arg0);
-
+        var input = gameObject.GetComponent<InputField>();
+        input.text = "";
+        input.ActivateInputField();
     }
 }

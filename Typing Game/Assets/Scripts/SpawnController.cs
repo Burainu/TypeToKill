@@ -115,10 +115,11 @@ public class SpawnController : MonoBehaviour
                 try
                 {
 
-                    if (eachLine[wordId].Length < 5 && eachLine[wordId].Length > 3)
+                    if (eachLine[wordId].Length-1 < 5 && eachLine[wordId].Length-1 > 3)
                     {
                         rightWord = true;
                         w = eachLine[wordId];
+                        w = w.Replace("\n", "").Replace("\r", "");
                     }
                 }
                 catch (System.ArgumentOutOfRangeException)
@@ -130,22 +131,23 @@ public class SpawnController : MonoBehaviour
         return w;
     }
 
-    public void killEnemy(int sID)
+    public void KillEnemy()
     {
-        // if the enemy's spawnId is equal to this spawnersID then remove an enemy count
-        if (SpawnId == sID)
-        {
-            numEnemies--;
-        }
-
+        numEnemies--;
     }
     public void AttemptedKill(string arg0)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         for(int x = 0; x <enemies.Length; x++)
         {
+           
             EnemyControll enemy = enemies[x].GetComponent<EnemyControll>();
-            print("Enemy word: "+enemy.ReturnWord());
+            if (arg0.Equals(enemy.ReturnWord()))
+            {
+                enemy.Die();
+                KillEnemy();
+
+            }
         }
     }
 }

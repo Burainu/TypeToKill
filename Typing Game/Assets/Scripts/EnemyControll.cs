@@ -31,7 +31,7 @@ public class EnemyControll : MonoBehaviour
     public void Movement()
     {
         transform.position = Vector2.MoveTowards(transform.position, castle.position, speed * Time.deltaTime);
-        
+
     }
 
     public void SetWord()
@@ -40,7 +40,6 @@ public class EnemyControll : MonoBehaviour
         SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
         int level = 1;
         word = other.ReturnWord(level);
-        print("Enemy word:" + word);
     }
     private void SetName()
     {
@@ -53,5 +52,9 @@ public class EnemyControll : MonoBehaviour
     public string ReturnWord()
     {
         return word;
+    }
+    public void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 170348111}
   - component: {fileID: 170348110}
   - component: {fileID: 170348109}
+  - component: {fileID: 170348112}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Castle
@@ -446,6 +447,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170348112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170348108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9470a409cac2924ab3dc3e3ab0f7b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
 --- !u!1 &316773168
 GameObject:
   m_ObjectHideFlags: 0

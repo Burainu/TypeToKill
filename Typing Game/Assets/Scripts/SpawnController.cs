@@ -11,8 +11,8 @@ public class SpawnController : MonoBehaviour
         ranged,
         Boss
     }
-    public GameObject meleeEnemy;
-    public GameObject rangedEnemy;
+    public GameObject wraith;
+    public GameObject skeleton;
     public GameObject bossEnemy;
 
     public GameObject spawn1;
@@ -96,7 +96,10 @@ public class SpawnController : MonoBehaviour
         }
         if (levelNumber == 0)
         {
-            GameObject Enemy = (GameObject) Instantiate(meleeEnemy, spawner.transform.position, Quaternion.identity);
+            var ranNum = Random.Range(0, 2);
+            GameObject Enemy = ranNum == 0
+                ? (GameObject)Instantiate(wraith, spawner.transform.position, Quaternion.identity)
+                : (GameObject)Instantiate(skeleton, spawner.transform.position, Quaternion.identity);
             if (flip)
             {
                 Enemy.GetComponent<SpriteRenderer>().flipX = true;

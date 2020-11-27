@@ -10,8 +10,8 @@ public class EnemyControll : MonoBehaviour
     public float speed;
     public string word;
     public GameObject EnemyName;
-    public GameObject TextName;
-    public GameObject TextingText;
+    //public GameObject TextName;
+    //public GameObject TextingText;
 
     // Start is called before the first frame update
     void Start()

@@ -42,7 +42,7 @@ public class SpawnController : MonoBehaviour
     void Start()
     {
         numEnemies = 0;
-        maxEnemiesOnScreen = 4;
+        maxEnemiesOnScreen = 7;
         spawnTimer = 2f;
         timeTillSpawn = 9.0f;
         levelNumber = 0;

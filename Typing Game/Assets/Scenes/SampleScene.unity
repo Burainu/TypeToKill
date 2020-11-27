@@ -546,9 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24009143ffbec541b35d0964baaaab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemy: {fileID: 7458832644340209222, guid: a100bac5a421cfd499f1db7cf2607b32,
+  wraith: {fileID: 7458832644340209222, guid: a100bac5a421cfd499f1db7cf2607b32, type: 3}
+  skeleton: {fileID: 1856385387536690346, guid: 344272020e391dc43a146bcedb020f6f,
     type: 3}
-  rangedEnemy: {fileID: 0}
   bossEnemy: {fileID: 0}
   spawn1: {fileID: 1839781295}
   spawn2: {fileID: 1386560079}
@@ -1604,8 +1604,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960387124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.815169, y: 0.15692207, z: -2.145861}
-  m_LocalScale: {x: 1.032, y: 1.169, z: 1}
+  m_LocalPosition: {x: -6.7973, y: 0.15692207, z: -2.145861}
+  m_LocalScale: {x: 1.0375831, y: 1.169, z: 1}
   m_Children: []
   m_Father: {fileID: 611291282}
   m_RootOrder: 1

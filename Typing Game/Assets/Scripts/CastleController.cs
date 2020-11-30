@@ -6,7 +6,6 @@ using UnityEngine;
 public class CastleController : MonoBehaviour
 {
     public int hp;
-    public string hpText;
     public GameObject hpObject;
     // Start is called before the first frame update
     void Start()

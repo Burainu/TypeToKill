@@ -97,6 +97,8 @@ public class SpawnController : MonoBehaviour
             levelNumber++;
             enemiesKilled = 0;
             numEnemies = 0;
+
+            //this means maxEnemies will always increase by 5 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
             maxEnemiesOnScreen += 5;
         }
     }

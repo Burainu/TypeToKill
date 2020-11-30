@@ -6,15 +6,20 @@ using UnityEngine;
 public class CastleController : MonoBehaviour
 {
     public int hp;
+    public string hpText;
+    public GameObject hpObject;
     // Start is called before the first frame update
     void Start()
     {
         hp = 6;
+        hpObject.GetComponent<UnityEngine.UI.Text>().text = "Castle Health: " + hp.ToString() ;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        hpObject.GetComponent<UnityEngine.UI.Text>().text = "Castle Health: " + hp.ToString();
         CheckForEndGame();
     }
 

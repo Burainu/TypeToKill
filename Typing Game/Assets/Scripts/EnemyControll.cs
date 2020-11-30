@@ -38,8 +38,7 @@ public class EnemyControll : MonoBehaviour
     {
         GameObject go = GameObject.Find("SpawnController");
         SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
-        int level = 1;
-        word = other.ReturnWord(level);
+        word = other.ReturnWord();
     }
     private void SetName()
     {

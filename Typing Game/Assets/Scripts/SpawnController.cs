@@ -15,6 +15,10 @@ public class SpawnController : MonoBehaviour
     public GameObject skeleton;
     public GameObject bossEnemy;
 
+    public GameObject numEnemiesObj;
+    public GameObject levelNumObj;
+
+
     public GameObject spawn1;
     public GameObject spawn2;
 
@@ -23,6 +27,8 @@ public class SpawnController : MonoBehaviour
     public bool Spawn = true;
     private int numEnemies;
     public int maxEnemiesOnScreen;
+    public int enemiesKilled;
+    public int enemiesLeft;
 
     public float spawnTimer;
     public float timeTillSpawn;
@@ -41,18 +47,22 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemiesKilled = 0;
         numEnemies = 0;
         maxEnemiesOnScreen = 7;
         spawnTimer = 2f;
         timeTillSpawn = 9.0f;
-        levelNumber = 0;
-
+        levelNumber = 1;
+        enemiesLeft = maxEnemiesOnScreen - enemiesKilled;
 
         SpawnId = Random.Range(1, 500);
         theWholeFileAsOneLongString = dictionaryTextFile.text;
 
         eachLine = new List<string>();
         eachLine.AddRange(theWholeFileAsOneLongString.Split("\n"[0]));
+
+        numEnemiesObj.GetComponent<UnityEngine.UI.Text>().text = enemiesLeft.ToString() + " Enemies left";
+        levelNumObj.GetComponent<UnityEngine.UI.Text>().text = "Level "+levelNumber.ToString() ;
     }
 
     // Update is called once per frame
@@ -79,6 +89,16 @@ public class SpawnController : MonoBehaviour
                 }
             }
         }
+        enemiesLeft = maxEnemiesOnScreen - enemiesKilled;
+        numEnemiesObj.GetComponent<UnityEngine.UI.Text>().text = enemiesLeft.ToString() + " Enemies left";
+        levelNumObj.GetComponent<UnityEngine.UI.Text>().text = "Level " + levelNumber.ToString();
+        if (enemiesLeft == 0)
+        {
+            levelNumber++;
+            enemiesKilled = 0;
+            numEnemies = 0;
+            maxEnemiesOnScreen += 5;
+        }
     }
 
     void spawnEnemy(int spawnLocId)
@@ -94,7 +114,18 @@ public class SpawnController : MonoBehaviour
             flip = false;
             spawner = spawn2;
         }
-        if (levelNumber == 0)
+        if (levelNumber == 1)
+        {
+            var ranNum = Random.Range(0, 2);
+            GameObject Enemy = ranNum == 0
+                ? (GameObject)Instantiate(wraith, spawner.transform.position, Quaternion.identity)
+                : (GameObject)Instantiate(skeleton, spawner.transform.position, Quaternion.identity);
+            if (flip)
+            {
+                Enemy.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+        if (levelNumber == 2)
         {
             var ranNum = Random.Range(0, 2);
             GameObject Enemy = ranNum == 0
@@ -106,19 +137,37 @@ public class SpawnController : MonoBehaviour
             }
         }
     }
-    public string ReturnWord(int level)
+    public string ReturnWord()
     {
         bool rightWord = false;
         string w = null;
         while (!rightWord)
         {
-            if (level == 1)
+            if (levelNumber == 1)
             {
                 int wordId = Random.Range(4, 466000);
                 try
                 {
 
                     if (eachLine[wordId].Length-1 < 5 && eachLine[wordId].Length-1 > 3)
+                    {
+                        rightWord = true;
+                        w = eachLine[wordId];
+                        w = w.Replace("\n", "").Replace("\r", "");
+                    }
+                }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    continue;
+                }
+            }
+            else if (levelNumber == 2)
+            {
+                int wordId = Random.Range(4, 466000);
+                try
+                {
+
+                    if (eachLine[wordId].Length - 1 < 8 && eachLine[wordId].Length - 1 > 4)
                     {
                         rightWord = true;
                         w = eachLine[wordId];
@@ -137,6 +186,7 @@ public class SpawnController : MonoBehaviour
     public void KillEnemy()
     {
         numEnemies--;
+        enemiesKilled++;
     }
     public void AttemptedKill(string arg0)
     {

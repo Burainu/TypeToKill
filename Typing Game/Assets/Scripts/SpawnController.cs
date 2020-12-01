@@ -11,9 +11,9 @@ public class SpawnController : MonoBehaviour
         ranged,
         Boss
     }
-    public GameObject wraith;
+    public GameObject slime;
     public GameObject skeleton;
-    public GameObject bossEnemy;
+    public GameObject wraith;
 
     public GameObject numEnemiesObj;
     public GameObject levelNumObj;
@@ -68,7 +68,7 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnLocId = Random.Range(1, 10) % 2;
+        spawnLocId = Random.Range(0, 10) % 2;  //min is inclusive and max is exclusive that's why it's 0-10 so it will only have numbers from 0 - 9
         if (Spawn)
         {
             timeTillSpawn += Time.deltaTime;
@@ -118,10 +118,8 @@ public class SpawnController : MonoBehaviour
         }
         if (levelNumber == 1)
         {
-            var ranNum = Random.Range(0, 2);
-            GameObject Enemy = ranNum == 0
-                ? (GameObject)Instantiate(wraith, spawner.transform.position, Quaternion.identity)
-                : (GameObject)Instantiate(skeleton, spawner.transform.position, Quaternion.identity);
+            //var ranNum = Random.Range(0, 2);
+            GameObject Enemy = (GameObject)Instantiate(slime, spawner.transform.position, Quaternion.identity);
             if (flip)
             {
                 Enemy.GetComponent<SpriteRenderer>().flipX = true;
@@ -130,9 +128,10 @@ public class SpawnController : MonoBehaviour
         if (levelNumber == 2)
         {
             var ranNum = Random.Range(0, 2);
+            Debug.Log(ranNum);
             GameObject Enemy = ranNum == 0
                 ? (GameObject)Instantiate(wraith, spawner.transform.position, Quaternion.identity)
-                : (GameObject)Instantiate(skeleton, spawner.transform.position, Quaternion.identity);
+                : (GameObject)Instantiate(slime, spawner.transform.position, Quaternion.identity);
             if (flip)
             {
                 Enemy.GetComponent<SpriteRenderer>().flipX = true;

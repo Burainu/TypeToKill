@@ -7,12 +7,13 @@ public class CastleController : MonoBehaviour
 {
     public int hp;
     public GameObject hpObject;
+    public GameObject dmgFlash;
     // Start is called before the first frame update
     void Start()
     {
         hp = 6;
         hpObject.GetComponent<UnityEngine.UI.Text>().text = "Castle Health: " + hp.ToString() ;
-       
+
     }
 
     // Update is called once per frame
@@ -26,9 +27,15 @@ public class CastleController : MonoBehaviour
     {
         hp--;
         Destroy(collision.gameObject);
-        Debug.Log("hp - 1");
-    }
+        StartCoroutine(flashScreen());
 
+    }
+    IEnumerator flashScreen()
+    {
+        dmgFlash.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        dmgFlash.SetActive(false);
+    }
     private void CheckForEndGame()
     {
         if (hp <= 0) {

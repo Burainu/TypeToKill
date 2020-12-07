@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4568424605140835999}
   - component: {fileID: 1856385387536690347}
   - component: {fileID: 1856385387536690325}
-  - component: {fileID: 2311368159601048264}
   - component: {fileID: 6894937297885849533}
   - component: {fileID: 4086345301328334274}
   - component: {fileID: 1272662098481857768}
   - component: {fileID: 50607372784379744}
+  - component: {fileID: 114094153764200768}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -110,24 +110,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2311368159601048264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856385387536690346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add69fa2f1d6be94d8e9fb1267e85303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  castle: {fileID: 0}
-  speed: 0
-  word: 
-  EnemyName: {fileID: 5026953352480076491, guid: 184cd562d5cc3b147b2df24a7456aa3f,
-    type: 3}
 --- !u!61 &6894937297885849533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,6 +197,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &114094153764200768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856385387536690346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdae26822bed1b45aeb5548ac9ad788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  castle: {fileID: 0}
+  speed: 0
+  words: []
+  EnemyName: {fileID: 1822765259876073991}
 --- !u!1001 &6667737749843259596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,7 +289,7 @@ PrefabInstance:
     - target: {fileID: 5536813842393449984, guid: 184cd562d5cc3b147b2df24a7456aa3f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 0.702
       objectReference: {fileID: 0}
     - target: {fileID: 5536813842393449984, guid: 184cd562d5cc3b147b2df24a7456aa3f,
         type: 3}
@@ -344,6 +343,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184cd562d5cc3b147b2df24a7456aa3f, type: 3}
+--- !u!1 &1822765259876073991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026953352480076491, guid: 184cd562d5cc3b147b2df24a7456aa3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6667737749843259596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1179422976287536844 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5536813842393449984, guid: 184cd562d5cc3b147b2df24a7456aa3f,

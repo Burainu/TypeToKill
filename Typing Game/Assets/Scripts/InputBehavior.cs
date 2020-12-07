@@ -9,6 +9,8 @@ public class InputBehavior : MonoBehaviour
     void Start()
     {
         var input = gameObject.GetComponent<InputField>();
+        input.ActivateInputField();
+
         var se = new InputField.SubmitEvent();
         se.AddListener(SubmitWord);
         input.onEndEdit = se;

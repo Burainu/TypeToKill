@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControll : MonoBehaviour
+public class WraithControl : MonoBehaviour
 {
     public int hp;
     public Transform castle;
@@ -39,7 +39,6 @@ public class EnemyControll : MonoBehaviour
         GameObject go = GameObject.Find("SpawnController");
         SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
         word = other.ReturnWord();
-        Debug.Log(word);
     }
     private void SetName()
     {

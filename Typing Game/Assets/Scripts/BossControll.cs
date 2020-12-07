@@ -3,22 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControll : MonoBehaviour
+public class BossControll : MonoBehaviour
 {
     public int hp;
     public Transform castle;
     public float speed;
-    public string word;
+    public List <string> words;
     public GameObject EnemyName;
+    public int numWords;
     //public GameObject TextName;
     //public GameObject TextingText;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1f;
+        speed = .3f;
         castle = GameObject.FindGameObjectWithTag("Castle").transform;
-        SetWord();
+        numWords = 4;
+        SetWords();
         SetName();
     }
 
@@ -34,27 +36,39 @@ public class EnemyControll : MonoBehaviour
 
     }
 
-    public void SetWord()
+    public void SetWords()
     {
         GameObject go = GameObject.Find("SpawnController");
         SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
-        word = other.ReturnWord();
-        Debug.Log(word);
+        for (int x = 0; x < numWords; x++)
+        {
+            words.Add(other.ReturnWord());
+        }
     }
     private void SetName()
     {
         if (EnemyName)
         {
+            var word = "";
+            for(int x = 0; x < words.Count; x++)
+            {
+                word += words[x] + ", ";
+            }
             transform.GetChild(0).GetComponent<TextMesh>().text = word;
         }
     }
 
-    public string ReturnWord()
+    public List<string> ReturnWord()
     {
-        return word;
+        return words;
     }
     public void Die()
     {
         Destroy(this.gameObject);
+    }
+    public void recieveRemainingWords(List<string> w)
+    {
+        words = w;
+        SetName();
     }
 }

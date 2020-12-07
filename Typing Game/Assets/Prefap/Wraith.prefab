@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6901631427146879281}
   - component: {fileID: 7458832644340209240}
   - component: {fileID: 7458832644340209223}
-  - component: {fileID: 7458832644340209243}
   - component: {fileID: 7458832644340209241}
   - component: {fileID: 7458832644340209244}
   - component: {fileID: 7065261038339169832}
   - component: {fileID: 4652439767650337515}
+  - component: {fileID: 114304521397353718}
   m_Layer: 0
   m_Name: Wraith
   m_TagString: Enemy
@@ -110,24 +110,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7458832644340209243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7458832644340209222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add69fa2f1d6be94d8e9fb1267e85303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  castle: {fileID: 0}
-  speed: 0
-  word: 
-  EnemyName: {fileID: 5026953352480076491, guid: 184cd562d5cc3b147b2df24a7456aa3f,
-    type: 3}
 --- !u!61 &7458832644340209241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,6 +197,23 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &114304521397353718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458832644340209222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc3eeb95d004f54a8c9cda752c3e4c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  castle: {fileID: 0}
+  speed: 0
+  word: 
+  EnemyName: {fileID: 6151232025827122857}
 --- !u!1001 &1197609640664640610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,6 +338,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184cd562d5cc3b147b2df24a7456aa3f, type: 3}
+--- !u!1 &6151232025827122857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026953352480076491, guid: 184cd562d5cc3b147b2df24a7456aa3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197609640664640610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6649693792451816034 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5536813842393449984, guid: 184cd562d5cc3b147b2df24a7456aa3f,

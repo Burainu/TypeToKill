@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossControll : MonoBehaviour
+public class BossControll : EnemyControll
 {
     public int hp;
     public Transform castle;

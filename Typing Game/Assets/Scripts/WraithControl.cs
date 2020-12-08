@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WraithControl : MonoBehaviour
+public class WraithControl : EnemyControll
 {
     public int hp;
     public Transform castle;

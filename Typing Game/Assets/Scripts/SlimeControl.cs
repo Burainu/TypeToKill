@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeControl : MonoBehaviour
+public class SlimeControl : EnemyControll
 {
     public int hp;
     public Transform castle;

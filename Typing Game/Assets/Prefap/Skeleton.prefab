@@ -40,8 +40,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: -1.2272}
-  m_SizeDelta: {x: 0.83, y: 1.35}
+  m_AnchoredPosition: {x: -5, y: -1.2306}
+  m_SizeDelta: {x: 0.83, y: 1.3431641}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1856385387536690347
 SpriteRenderer:
@@ -214,6 +214,7 @@ MonoBehaviour:
   speed: 0
   words: []
   EnemyName: {fileID: 1822765259876073991}
+  numWords: 0
 --- !u!1001 &6667737749843259596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,6 +341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771662813647179307, guid: 184cd562d5cc3b147b2df24a7456aa3f,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184cd562d5cc3b147b2df24a7456aa3f, type: 3}

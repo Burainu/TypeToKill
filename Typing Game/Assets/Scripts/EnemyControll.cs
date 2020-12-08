@@ -5,56 +5,57 @@ using UnityEngine;
 
 public class EnemyControll : MonoBehaviour
 {
-    public int hp;
-    public Transform castle;
-    public float speed;
-    public string word;
-    public GameObject EnemyName;
+    //public int hp;
+    //public Transform castle;
+    //public float speed;
+    //public string word;
+    //public GameObject EnemyName;
+    public bool isCollided = false;
     //public GameObject TextName;
     //public GameObject TextingText;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1f;
-        castle = GameObject.FindGameObjectWithTag("Castle").transform;
-        SetWord();
-        SetName();
+        //speed = 1f;
+        //castle = GameObject.FindGameObjectWithTag("Castle").transform;
+        //SetWord();
+        //SetName();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        //Movement();
     }
 
-    public void Movement()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, castle.position, speed * Time.deltaTime);
+    //public void Movement()
+    //{
+    //    transform.position = Vector2.MoveTowards(transform.position, castle.position, speed * Time.deltaTime);
 
-    }
+    //}
 
-    public void SetWord()
-    {
-        GameObject go = GameObject.Find("SpawnController");
-        SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
-        word = other.ReturnWord();
-        Debug.Log(word);
-    }
-    private void SetName()
-    {
-        if (EnemyName)
-        {
-            transform.GetChild(0).GetComponent<TextMesh>().text = word;
-        }
-    }
+    //public void SetWord()
+    //{
+    //    GameObject go = GameObject.Find("SpawnController");
+    //    SpawnController other = (SpawnController)go.GetComponent(typeof(SpawnController));
+    //    word = other.ReturnWord();
+    //    Debug.Log(word);
+    //}
+    //private void SetName()
+    //{
+    //    if (EnemyName)
+    //    {
+    //        transform.GetChild(0).GetComponent<TextMesh>().text = word;
+    //    }
+    //}
 
-    public string ReturnWord()
-    {
-        return word;
-    }
-    public void Die()
-    {
-        Destroy(this.gameObject);
-    }
+    //public string ReturnWord()
+    //{
+    //    return word;
+    //}
+    //public void Die()
+    //{
+    //    Destroy(this.gameObject);
+    //}
 }

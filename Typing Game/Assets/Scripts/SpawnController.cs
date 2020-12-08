@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpawnController : MonoBehaviour
@@ -47,9 +48,13 @@ public class SpawnController : MonoBehaviour
     public Input playerInput;
     public int bossNumber;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        //endlessMode = GameObject.Find("Endless_Mode_Button").GetComponent<EndlessModeButton>().isEndlessMode;
+        endlessMode = false;
+        Destroy(GameObject.Find("Canvas_Start"));
         enemiesKilled = 0;
         numEnemies = 0;
         totalEnemies = 2;
@@ -72,6 +77,7 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForGameWinning();
         //spawnLocId = Random.Range(0, 10) % 2;  //min is inclusive and max is exclusive that's why it's 0-10 so it will only have numbers from 0 - 9
         spawnLocId = 1;
         if (Spawn)
@@ -97,6 +103,7 @@ public class SpawnController : MonoBehaviour
         {
             if (endlessMode)
             {
+                Debug.Log("in endlessMode");
                 if (enemiesToSpawn == 0)
                 {
                     levelNumber++;
@@ -165,6 +172,18 @@ public class SpawnController : MonoBehaviour
 
 
     }
+
+    private void CheckForGameWinning()
+    {
+        if (!endlessMode)
+        {
+            if ( bossDead )
+            {
+                SceneManager.LoadScene("WinningScene", LoadSceneMode.Single);
+            }
+        }
+    }
+
     void spawnBoss(int spawnLocId)
     {
         GameObject spawner;

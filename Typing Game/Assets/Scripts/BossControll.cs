@@ -17,7 +17,7 @@ public class BossControll : EnemyControll
     // Start is called before the first frame update
     void Start()
     {
-        speed = .3f;
+        speed = .6f;
         castle = GameObject.FindGameObjectWithTag("Castle").transform;
         numWords = 4;
         SetWords();

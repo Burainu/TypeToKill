@@ -52,12 +52,12 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //endlessMode = GameObject.Find("Endless_Mode_Button").GetComponent<EndlessModeButton>().isEndlessMode;
-        endlessMode = false;
+        endlessMode = GameObject.Find("Endless_Mode_Button").GetComponent<EndlessModeButton>().isEndlessMode;
+        //endlessMode = true;
         Destroy(GameObject.Find("Canvas_Start"));
         enemiesKilled = 0;
         numEnemies = 0;
-        totalEnemies = 2;
+        totalEnemies = 5;
         spawnTimer = 2f;
         timeTillSpawn = 9.0f;
         levelNumber = 1;
@@ -104,19 +104,7 @@ public class SpawnController : MonoBehaviour
             if (endlessMode)
             {
                 Debug.Log("in endlessMode");
-                if (enemiesToSpawn == 0)
-                {
-                    levelNumber++;
-                    enemiesKilled = 0;
-                    numEnemies = 0;
-                    bossNumber = 0;
-
-                    //this means totalEnemies will always increase by 2 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
-                    totalEnemies += 2;
-                    Spawn = true;
-
-                }
-                else if (enemiesToSpawn == 0 && levelNumber % 2 == 0)
+                if (enemiesLeft == 0 && levelNumber % 2 == 0)
                 {
                     if (bossNumber == 0)
                     {
@@ -129,8 +117,20 @@ public class SpawnController : MonoBehaviour
                     }
 
                     //this means totalEnemies will always increase by 2 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
-                    totalEnemies += 2;
+                    totalEnemies += 3;
+                }else if (enemiesLeft == 0)
+                {
+                    levelNumber++;
+                    enemiesKilled = 0;
+                    numEnemies = 0;
+                    bossNumber = 0;
+
+                    //this means totalEnemies will always increase by 2 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
+                    totalEnemies += 3;
+                    Spawn = true;
+
                 }
+              
             }
             else
             {
@@ -161,6 +161,7 @@ public class SpawnController : MonoBehaviour
                     //this means totalEnemies will always increase by 5 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
                     totalEnemies += 5;
                     Spawn = true;
+                    Debug.Log("jere");
                 }
             }
 
@@ -228,7 +229,7 @@ public class SpawnController : MonoBehaviour
                 Enemy.GetComponent<SpriteRenderer>().flipX = true;
             }
         }
-        if (levelNumber == 2)
+        else if (levelNumber == 2)
         {
             var ranNum = Random.Range(0, 2);
             
@@ -241,7 +242,7 @@ public class SpawnController : MonoBehaviour
             }
         }
 
-        if (levelNumber == 3)
+        else if (levelNumber == 3)
         {
             var ranNum = Random.Range(0, 2);
 
@@ -253,6 +254,17 @@ public class SpawnController : MonoBehaviour
                 Enemy.GetComponent<SpriteRenderer>().flipX = true;
             }
                         
+        }else if (endlessMode)
+        {
+            var ranNum = Random.Range(0, 2);
+
+            GameObject Enemy = ranNum == 0
+                ? (GameObject)Instantiate(wraith, spawner.transform.position, Quaternion.identity)
+                : (GameObject)Instantiate(slime, spawner.transform.position, Quaternion.identity);
+            if (flip)
+            {
+                Enemy.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
         
     }
@@ -305,6 +317,24 @@ public class SpawnController : MonoBehaviour
                 {
 
                     if (eachLine[wordId].Length - 1 < 10 && eachLine[wordId].Length - 1 > 6)
+                    {
+                        rightWord = true;
+                        w = eachLine[wordId];
+                        w = w.Replace("\n", "").Replace("\r", "");
+                    }
+                }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    continue;
+                }
+            }
+            else if (levelNumber > 3)
+            {
+                int wordId = Random.Range(4, 466000);
+                try
+                {
+
+                    if (eachLine[wordId].Length - 1 < 15 && eachLine[wordId].Length - 1 > 6)
                     {
                         rightWord = true;
                         w = eachLine[wordId];

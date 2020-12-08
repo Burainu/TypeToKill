@@ -11,6 +11,7 @@ public class CastleController : MonoBehaviour
     public GameObject hpObject;
     public GameObject dmgFlash;
     public GameObject spawnObj;
+    public AudioSource dmgSound;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,7 @@ public class CastleController : MonoBehaviour
     }
     IEnumerator flashScreen()
     {
+        dmgSound.Play();
         dmgFlash.SetActive(true);
         yield return new WaitForSeconds(.1f);
         dmgFlash.SetActive(false);

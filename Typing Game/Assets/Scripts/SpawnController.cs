@@ -108,6 +108,7 @@ public class SpawnController : MonoBehaviour
                 {
                     if (bossNumber == 0)
                     {
+                        bossDead = false;
                         spawnBoss(spawnLocId);
                     }
                     if (bossDead)

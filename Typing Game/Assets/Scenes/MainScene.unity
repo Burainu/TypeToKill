@@ -590,6 +590,7 @@ MonoBehaviour:
   hp: 0
   hpObject: {fileID: 0}
   dmgFlash: {fileID: 404764356}
+  spawnObj: {fileID: 395009252}
 --- !u!1 &316773168
 GameObject:
   m_ObjectHideFlags: 0

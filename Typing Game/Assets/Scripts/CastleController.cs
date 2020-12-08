@@ -10,6 +10,7 @@ public class CastleController : MonoBehaviour
     public int hp;
     public GameObject hpObject;
     public GameObject dmgFlash;
+    public GameObject spawnObj;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +46,13 @@ public class CastleController : MonoBehaviour
             UpdateHeart();
             StartCoroutine(flashScreen());
             collision.gameObject.GetComponent<EnemyControll>().isCollided = true;
+            Destroy(collision.gameObject);
+            spawnObj.GetComponent<SpawnController>().KillEnemy();
+            if (collision.gameObject.GetComponent<BossControll>())
+            {
+                hp = 0;
+            }
         }
-        Destroy(collision.gameObject);
 
     }
     IEnumerator flashScreen()

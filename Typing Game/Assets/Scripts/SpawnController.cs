@@ -112,12 +112,18 @@ public class SpawnController : MonoBehaviour
                     }
                     if (bossDead)
                     {
+                        levelNumber++;
+                        enemiesKilled = 0;
+                        numEnemies = 0;
+                        bossNumber = 0;
+
+                        //this means totalEnemies will always increase by 2 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
+                        totalEnemies += 3;
                         Spawn = true;
 
                     }
 
-                    //this means totalEnemies will always increase by 2 when a level is finished, regardless of level. Probably just temporary for now given we may want more control over it. 
-                    totalEnemies += 3;
+                   
                 }else if (enemiesLeft == 0)
                 {
                     levelNumber++;
@@ -352,7 +358,6 @@ public class SpawnController : MonoBehaviour
 
     public void KillEnemy()
     {
-        //;
         enemiesKilled++;
     }
     public void AttemptedKill(string arg0)
